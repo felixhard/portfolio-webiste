@@ -1,9 +1,12 @@
 import Image from "next/image";
+import HeroSection from "./components/HeroSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen felx-col bg-[#F1F1F1]">
-      <h1 className="">Portfolio</h1>
+    <main className="flex min-h-screen felx-col bg-[#1E1E1E] container mx-auto px-12 py-4">
+      <div classname="container mx-auto px-12 py-4">
+        <HeroSection />
+      </div>
     </main>
   );
 }
