@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useTransition, useState } from 'react'
-import Image from 'next/image'
-import TabButton from './TabButton';
+import React, { useTransition, useState } from "react";
+import Image from "next/image";
+import TabButton from "./TabButton";
 
 const TAB_DATA = [
   {
@@ -10,19 +10,20 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
+        <li>C#</li>
+        <li>.NET</li>
+        <li>HTML</li>
         <li>JavaScript</li>
         <li>React</li>
-        <li>Redux</li>
         <li>Node.js</li>
         <li>Express</li>
         <li>MySQL</li>
-        <li>HTML</li>
         <li>CSS</li>
         <li>Git</li>
       </ul>
-    )
+    ),
   },
-  
+
   {
     title: "education",
     id: "education",
@@ -30,7 +31,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Object Oriented Software Development, NBI / Handelsakademin</li>
       </ul>
-    )
+    ),
   },
   {
     title: "experience",
@@ -41,9 +42,9 @@ const TAB_DATA = [
         <li>Software Development Internship, Mardi Gras Digital</li>
         <li>IT-Support, Adapty AB</li>
       </ul>
-    )
-  }
-]
+    ),
+  },
+];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
@@ -53,42 +54,59 @@ const AboutSection = () => {
     startTransition(() => {
       setTab(id);
     });
-  }
+  };
 
   return (
-    <section className="text-white">
+    <section
+      id="about"
+      className="text-white"
+    >
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image className="" src="/images/ai-bild.png" width={500} height={500} />
+        <Image
+          className=""
+          src="/images/ai-bild.png"
+          width={500}
+          height={500}
+        />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg">I am a full stack developer with a passion for creating interactive
-            and responsive web applications. I have experience working with JavaScript,
-            React, Redux, Node.js, Express, MySQL, HTML, CSS and Git. I am a qick learner
-            and I'm always looking to expand my knowledge and skill sets. I am a team player
-            and am exited to work with others to create amazing projects.
+          <p className="text-base lg:text-lg">
+            I am a recently graduated Software developer aspiring to find a job
+            in Development. I have experience working with C#, .NET, JavaScript,
+            React, Node.js, Express, MySQL, HTML, CSS and Git. I am a qick
+            learner and I'm always looking to expand my knowledge and skill
+            sets. I am a team player and am exited to work with others to create
+            amazing projects.
           </p>
           <div className="flex flex-row mt-8">
-            <TabButton 
-            selectTab={() => handleTabChange("skills")} 
-            active={tab === "skills"}>
-               Skills </TabButton>
-  
-               <TabButton 
-            selectTab={() => handleTabChange("education")} 
-            active={tab === "education"}>
-               Education </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("skills")}
+              active={tab === "skills"}
+            >
+              Skills{" "}
+            </TabButton>
 
-               <TabButton 
-            selectTab={() => handleTabChange("experience")} 
-            active={tab === "experience"}>
-               Experience </TabButton>
-            
+            <TabButton
+              selectTab={() => handleTabChange("education")}
+              active={tab === "education"}
+            >
+              Education{" "}
+            </TabButton>
+
+            <TabButton
+              selectTab={() => handleTabChange("experience")}
+              active={tab === "experience"}
+            >
+              Experience{" "}
+            </TabButton>
           </div>
-          <div className="mt-8">{TAB_DATA.find((t) => t.id === tab).content}</div>
+          <div className="mt-8">
+            {TAB_DATA.find((t) => t.id === tab).content}
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;

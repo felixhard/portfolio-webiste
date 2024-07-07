@@ -65,7 +65,7 @@ const Navbar = () => {
                   href={link.path}
                   title={link.title}
                 >
-                  {" "}
+                  {link.title}
                 </NavLink>
               </li>
             ))}
