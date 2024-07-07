@@ -20,11 +20,13 @@ const projectsData = [
   {
     id: 2,
     title: "Portfolio Website",
-    description: "This is a project",
+    description:
+      "This is a portfolio website built with React and Tailwind CSS. The website is responsive and mobile-friendly. The website is also integrated with Framer Motion for animations and React Router for navigation. The website is deployed on Vercel.",
     image: "images/projects/project-image.jpg",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/felixhard/portfolio-webiste",
+    previewUrl:
+      "https://portfolio-webiste-9xs9zbxq9-felixhs-projects-302ebb14.vercel.app/",
     previewAvailable: true,
   },
   // {
