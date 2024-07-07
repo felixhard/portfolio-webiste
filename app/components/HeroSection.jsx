@@ -17,9 +17,9 @@ const HeroSection = () => {
         >
           <h1 className="text-white mb-4 mt-8 text-2xl sm:text-5xl lg:text-6xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I'm{" "}
+              Hello, I&apos;m{" "}
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
               sequence={[
                 "Felix",
@@ -65,7 +65,7 @@ const HeroSection = () => {
           <div className="rounded-full bg-[#2E2E2E] w-[240px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
             <Image
               src="/images/hero-image.svg"
-              alt="hero image"
+              alt="Hero image"
               className="absolute rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={380}
               height={380}

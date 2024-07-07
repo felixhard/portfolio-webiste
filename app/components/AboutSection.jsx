@@ -74,7 +74,7 @@ const AboutSection = () => {
             I am a recently graduated Software developer aspiring to find a job
             in Development. I have experience working with C#, .NET, JavaScript,
             React, Node.js, Express, MySQL, HTML, CSS and Git. I am a qick
-            learner and I'm always looking to expand my knowledge and skill
+            learner and I&apos;m always looking to expand my knowledge and skill
             sets. I am a team player and am exited to work with others to create
             amazing projects.
           </p>
