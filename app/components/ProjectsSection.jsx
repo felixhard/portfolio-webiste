@@ -26,7 +26,7 @@ const projectsData = [
     tag: ["All", "Web"],
     gitUrl: "https://github.com/felixhard/portfolio-webiste",
     previewUrl:
-      "https://portfolio-webiste-9xs9zbxq9-felixhs-projects-302ebb14.vercel.app/",
+      "https://portfolio-webiste-3lddy11ld-felixhs-projects-302ebb14.vercel.app/",
     previewAvailable: true,
   },
   // {
