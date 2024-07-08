@@ -5,33 +5,43 @@ import GithubIcon from "../../public/github-icon.svg";
 import LinkedinIcon from "../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { useToast } from "@chakra-ui/react";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("");
+
     const data = {
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
     };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONdata,
-    };
+    const formEndpoint = "https://formspree.io/f/xovaqzlw";
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    if (response.status === 200) {
-      console.log("Message sent!");
-      setEmailSubmitted(true);
+      if (response.ok) {
+        console.log("Message sent!");
+        setEmailSubmitted(true);
+      } else {
+        console.error("Failed to send message:", response.statusText);
+        setErrorMessage("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setErrorMessage("An error occurred while sending the message.");
     }
   };
 
@@ -46,7 +56,6 @@ const EmailSection = () => {
           Let&apos;s Connect
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
           I&apos;m currently looking for new opportunities, my inbox is always
           open.
         </p>
@@ -54,13 +63,13 @@ const EmailSection = () => {
           <Link href="https://github.com/felixhard">
             <Image
               src={GithubIcon}
-              alt="github icon"
+              alt="GitHub icon"
             />
           </Link>
           <Link href="https://www.linkedin.com/in/felix-h%C3%A5rd-af-segerstad-006a4b24b/">
             <Image
               src={LinkedinIcon}
-              alt="linkedin icon"
+              alt="LinkedIn icon"
             />
           </Link>
         </div>
@@ -68,7 +77,7 @@ const EmailSection = () => {
       <div>
         <form
           className="flex flex-col"
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
         >
           <div className="mb-6">
             <label
@@ -109,9 +118,8 @@ const EmailSection = () => {
             >
               Message
             </label>
-            <input
+            <textarea
               name="message"
-              type="text"
               id="message"
               required
               className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 "
@@ -125,9 +133,12 @@ const EmailSection = () => {
             Submit
           </button>
           {emailSubmitted && (
-            <p className="text-green-500 text-sm mt-2">
+            <p className="text-green-600 text-sm mt-2">
               Email sent successfully!
             </p>
+          )}
+          {errorMessage && (
+            <p className="text-red-600 text-sm mt-2">{errorMessage}</p>
           )}
         </form>
       </div>
