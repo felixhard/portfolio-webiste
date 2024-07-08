@@ -72,8 +72,8 @@ const AboutSection = () => {
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
             I am a recently graduated Software developer aspiring to find a job
-            in Development. I have experience working with C#, .NET, JavaScript,
-            React, Node.js, Express, MySQL, HTML, CSS and Git. I am a qick
+            in development. I have experience working with C#, .NET, JavaScript,
+            React, Node.js, Express, MySQL, HTML, CSS and Git. I am a quick
             learner and I&apos;m always looking to expand my knowledge and skill
             sets. I am a team player and am exited to work with others to create
             amazing projects.
