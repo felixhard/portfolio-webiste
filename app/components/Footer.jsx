@@ -9,14 +9,15 @@ const Footer = () => {
         <span className="cursor-pointer">
           <Link href="/">
             <Image
-              src="/images/freelance-logo.svg"
-              width={120}
-              height={40}
+              src="/images/logo-test.svg"
+              width={48}
+              height={48}
               alt="Logo"
+              className="cursor-pointer rounded-lg"
             />
           </Link>
         </span>
-        <p className="text-slate-600">All rights reserved.</p>
+        <p className="text-slate-600 my-auto">All rights reserved.</p>
       </div>
     </footer>
   );

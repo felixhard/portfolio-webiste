@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavLink from "./NavLink";
 import Image from "next/image";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
@@ -27,32 +27,23 @@ const Navbar = () => {
 
   return (
     <nav className="absolute top-0 right-0 left-0 z-10 bg-slate-900 bg-opacity-20">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-12 py-2">
+      <div className="flex flex-wrap items-center justify-between mx-auto mt-4 px-12 py-2">
         <Link href="/">
           <Image
-            src="/images/freelance-logo.svg"
-            width={120}
-            height={40}
+            src="/images/logo-test.svg"
+            width={48}
+            height={48}
             alt="Logo"
-            className="cursor-pointer"
+            className="cursor-pointer rounded-lg"
           />
         </Link>
         <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button
-              onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            >
-              <Bars3Icon className="h-5 w-5" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
-            >
-              <XMarkIcon className="h-5 w-5" />
-            </button>
-          )}
+          <button
+            onClick={() => setNavbarOpen(true)}
+            className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+          >
+            <Bars3Icon className="h-5 w-5" />
+          </button>
         </div>
         <div
           className="menu hidden md:block md:w-auto"
@@ -72,7 +63,12 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {navbarOpen && (
+        <MenuOverlay
+          links={navLinks}
+          onClose={() => setNavbarOpen(false)}
+        />
+      )}
     </nav>
   );
 };
